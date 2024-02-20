@@ -70,3 +70,101 @@ La surcharge de l'opérateur ```<<``` facilite l'affichage des objets ```Fixed``
 ```getRawBits``` et ```setRawBits``` permettent respectivement de récupérer et de définir la valeur à virgule fixe, sans conversion. Cette implémentation favorise une gestion flexible des nombres à virgule fixe, offrant ainsi une nouvelle dimension à la manipulation des nombres dans le cadre du projet.
 
 La classe ```Fixed``` enrichie démontre son utilité à travers un programme de test qui convertit différentes valeurs entre les représentations entières, flottantes, et à virgule fixe, illustrant la polyvalence et la précision des conversions effectuées par la classe.
+
+<br>
+
+## Exercice 02 - Maintenant, on peut parler
+
+Cet exercice enrichit davantage la classe Fixed introduite dans les exercices précédents en ajoutant la surcharge des opérateurs de comparaison, des opérateurs arithmétiques, ainsi que des opérateurs d'incrémentation et de décrémentation. De plus, des fonctions membres statiques sont introduites pour fournir des fonctionnalités de comparaison avancées entre deux nombres à virgule fixe.
+
+### Mon implémentation
+
+[Lien ici](https://github.com/aceyzz/CPP02/tree/main/ex02)
+
+#### Surcharge des opérateurs
+
+###### Opérateurs de comparaison
+
+- ```>``` : Compare si un Fixed est supérieur à un autre.
+- ```<``` : Compare si un Fixed est inférieur à un autre.
+- ```>=``` : Compare si un Fixed est supérieur ou égal à un autre.
+- ```<=``` : Compare si un Fixed est inférieur ou égal à un autre.
+- ```==``` : Vérifie l'égalité entre deux Fixed.
+- ```!=``` : Vérifie la non-égalité entre deux Fixed.
+
+###### Opérateurs arithmétiques
+
+- ```+``` : Additionne deux Fixed.
+- ```-``` : Soustrait un Fixed d'un autre.
+- ```*``` : Multiplie deux Fixed.
+- ```/``` : Divise un Fixed par un autre.
+
+###### Opérateurs d'incrémentation et de décrémentation
+
+- ```++``` (pré-incrémentation) : Incrémente la valeur d'un Fixed d'une unité avant l'utilisation de la valeur.
+- ```--``` (pré-décrémentation) : Décrémente la valeur d'un Fixed d'une unité avant l'utilisation de la valeur.
+- ```++``` (post-incrémentation) : Incrémente la valeur d'un Fixed d'une unité après l'utilisation de la valeur.
+- ```--``` (post-décrémentation) : Décrémente la valeur d'un Fixed d'une unité après l'utilisation de la valeur.
+
+##### Fonctions membres publiques statiques
+
+- ```min```: Retourne le plus petit des deux nombres à virgule fixe passés en paramètres. Deux versions sont fournies, une pour les références non-constantes et une pour les références constantes.
+- ```max```: Retourne le plus grand des deux nombres à virgule fixe passés en paramètres. De même, deux versions sont disponibles pour gérer les références non-constantes et constantes.
+
+<br>
+
+## Exercice 03 - BSP (Bonus)
+
+L'objectif cette fois-ci est d'implémenter une fonction bsp qui vérifie si un point est situé à l'intérieur d'un triangle défini dans un espace 2D, en utilisant la classe Fixed pour une représentation précise des coordonnées.
+
+> Lien utile [GeoGebra](https://www.geogebra.org/geometry?lang=fr) pour la représentation graphique du triangle et des points.
+
+### Mon implémentation
+
+[Lien ici](https://github.com/aceyzz/CPP02/tree/main/ex03)
+
+##### Classe Point
+
+Premièrement, une classe Point est créée pour représenter un point en 2D avec les coordonnées x et y de type ```Fixed```.
+
+###### Membres privés
+
+- ```Fixed const _x```: Coordonnée X du point, constante.
+- ```Fixed const _y```: Coordonnée Y du point, constante.
+
+###### Membres publics
+
+- Constructeur par défaut : Initialise x et y à 0.
+- Constructeur avec deux flottants : Prend deux flottants en paramètres pour initialiser x et y.
+- Constructeur de recopie : Permet la copie d'un objet Point.
+- Opérateur d'affectation : Affecte les valeurs d'un Point à un autre.
+	- **/!\ Notez que l'implémentation originale selon le sujet pour cet opérateur soulève une problématique avec les membres constants !!**
+- Destructeur : Détruit l'objet Point.
+- ```getX()```: Retourne la coordonnée X.
+- ```getY()```: Retourne la coordonnée Y.
+
+##### Fonction bsp
+
+La fonction ```bsp(Point const a, Point const b, Point const c, Point const point)``` détermine si le point est à l'intérieur du triangle formé par a, b, et c.
+
+- Paramètres : Les sommets a, b, c du triangle, et le point à vérifier.
+- Retour : ```True``` si le point est à l'intérieur du triangle, ```False``` dans le cas contraire (y compris sur les côtés ou les sommets du triangle).
+
+###### Logique de bsp
+
+ La fonction utilise le principe de la détermination du signe des aires formées par le point et les sommets du triangle pour conclure sur la position du point :
+
+- Calcul des signes : Utilise une fonction auxiliaire sign pour comparer les orientations des triangles formés par le point avec chaque paire de sommets du triangle principal.
+
+- Évaluation : Le point est à l'intérieur si et seulement si il partage la même orientation par rapport à chaque côté du triangle.
+
+#### Points importants et problématiques
+
+- Assignation et Constantes : Vous avez identifié une problématique dans l'assignation aux membres constants de Point. Une solution serait d'omettre l'opérateur d'affectation pour la classe Point, vu que les attributs sont constants et initialisés à la construction.
+- Précision : L'utilisation de la classe Fixed assure une gestion précise des opérations arithmétiques et des comparaisons, cruciale pour l'exactitude des vérifications géométriques.
+
+<br>
+
+## Résultat
+
+(En attente d'évaluation)
