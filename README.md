@@ -1,5 +1,7 @@
 <img src= "utils/CPP02.png" width= 100%>
 
+---
+
 ## Exercice 00 - Mon premier canon
 
 Cet exercice introduit la notion de nombres à virgule fixe, un type de données absent des types scalaires de la plupart des langages de programmation, mais qui offre un équilibre entre performance, exactitude, portée et précision. Vous êtes invités à créer une classe en C++ pour représenter un nombre à virgule fixe, en respectant la forme canonique et en implémentant les fonctionnalités suivantes :
