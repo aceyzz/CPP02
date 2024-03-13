@@ -185,8 +185,5 @@ La fonction ```bsp(Point const a, Point const b, Point const c, Point const poin
 
 </details>
 
-<br>
-
-## Résultat
 
 
