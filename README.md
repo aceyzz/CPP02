@@ -4,6 +4,9 @@
 
 ## Exercice 00 - Mon premier canon
 
+<details>
+  <summary>Afficher/Masquer</summary>
+
 Cet exercice introduit la notion de nombres à virgule fixe, un type de données absent des types scalaires de la plupart des langages de programmation, mais qui offre un équilibre entre performance, exactitude, portée et précision. Vous êtes invités à créer une classe en C++ pour représenter un nombre à virgule fixe, en respectant la forme canonique et en implémentant les fonctionnalités suivantes :
 
 ##### Membres privés :
@@ -35,9 +38,14 @@ La classe ```Fixed``` a été mise en œuvre pour représenter un nombre à virg
 
 La gestion des couleurs dans la console et le nettoyage de l'écran sont utilisés pour améliorer la lisibilité des messages d'état. Le programme principal démontre la création d'objets ```Fixed```, l'utilisation des constructeurs, de l'opérateur d'affectation, ainsi que des méthodes getRawBits et ```setRawBits```.
 
+</details>
+
 <br>
 
 ## Exercice 01 - Premier pas vers une classe utile
+
+<details>
+  <summary>Afficher/Masquer</summary>
 
 Cet exercice vise à enrichir la classe Fixed introduite dans l'exercice précédent, en y ajoutant de nouvelles fonctionnalités pour la rendre plus utile. L'objectif est de permettre à la classe de représenter des nombres à virgule fixe, non seulement avec la valeur 0.0 mais aussi avec des valeurs entières et flottantes converties en virgule fixe.
 
@@ -73,9 +81,14 @@ La surcharge de l'opérateur ```<<``` facilite l'affichage des objets ```Fixed``
 
 La classe ```Fixed``` enrichie démontre son utilité à travers un programme de test qui convertit différentes valeurs entre les représentations entières, flottantes, et à virgule fixe, illustrant la polyvalence et la précision des conversions effectuées par la classe.
 
+</details>
+
 <br>
 
 ## Exercice 02 - Maintenant, on peut parler
+
+<details>
+  <summary>Afficher/Masquer</summary>
 
 Cet exercice enrichit davantage la classe Fixed introduite dans les exercices précédents en ajoutant la surcharge des opérateurs de comparaison, des opérateurs arithmétiques, ainsi que des opérateurs d'incrémentation et de décrémentation. De plus, des fonctions membres statiques sont introduites pour fournir des fonctionnalités de comparaison avancées entre deux nombres à virgule fixe.
 
@@ -113,9 +126,14 @@ Cet exercice enrichit davantage la classe Fixed introduite dans les exercices pr
 - ```min```: Retourne le plus petit des deux nombres à virgule fixe passés en paramètres. Deux versions sont fournies, une pour les références non-constantes et une pour les références constantes.
 - ```max```: Retourne le plus grand des deux nombres à virgule fixe passés en paramètres. De même, deux versions sont disponibles pour gérer les références non-constantes et constantes.
 
+</details>
+
 <br>
 
 ## Exercice 03 - BSP (Bonus)
+
+<details>
+  <summary>Afficher/Masquer</summary>
 
 L'objectif cette fois-ci est d'implémenter une fonction bsp qui vérifie si un point est situé à l'intérieur d'un triangle défini dans un espace 2D, en utilisant la classe Fixed pour une représentation précise des coordonnées.
 
@@ -165,8 +183,10 @@ La fonction ```bsp(Point const a, Point const b, Point const c, Point const poin
 - Assignation et Constantes : Vous avez identifié une problématique dans l'assignation aux membres constants de Point. Une solution serait d'omettre l'opérateur d'affectation pour la classe Point, vu que les attributs sont constants et initialisés à la construction.
 - Précision : L'utilisation de la classe Fixed assure une gestion précise des opérations arithmétiques et des comparaisons, cruciale pour l'exactitude des vérifications géométriques.
 
+</details>
+
 <br>
 
 ## Résultat
 
-(En attente d'évaluation)
+
