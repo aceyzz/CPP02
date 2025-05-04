@@ -1,6 +1,13 @@
-<img src= "utils/CPP02.png" width= 100%>
+<img src= "git_utils/banner.png" width= 100%>
+
+<br>
 
 ---
+
+<br>
+
+<details>
+<summary>FRENCH VERSION</summary>
 
 ## Exercice 00 - Mon premier canon
 
@@ -185,5 +192,198 @@ La fonction ```bsp(Point const a, Point const b, Point const c, Point const poin
 
 </details>
 
+</details>
 
+<br>
 
+---
+
+<br>
+
+<details>
+<summary>ENGLISH VERSION</summary>
+
+## Exercise 00 - My First Canon
+
+<details>
+	<summary>Show/Hide</summary>
+
+This exercise introduces the concept of fixed-point numbers, a data type absent from the scalar types of most programming languages, but which offers a balance between performance, accuracy, range, and precision. You are invited to create a C++ class to represent a fixed-point number, adhering to the canonical form and implementing the following features:
+
+##### Private Members:
+
+- An integer to store the value of the fixed-point number.
+- A static constant integer to store the number of bits of the fractional part, fixed at 8.
+
+##### Public Members:
+
+- A default constructor that initializes the value of the fixed-point number to 0.
+- A copy constructor.
+- An assignment operator overload.
+- A destructor.
+- ```getRawBits```: Returns the value of the fixed-point number without converting it.
+- ```setRawBits```: Initializes the value of the fixed-point number with the one passed as a parameter.
+
+### My Implementation
+
+[Link here](https://github.com/aceyzz/CPP02/tree/main/ex00)
+
+The ```Fixed``` class was implemented to represent a fixed-point number with the given specifications.
+
+- Default constructor: Displays a message when called and initializes the value of the number to 0.
+- Copy constructor: Copies the value of the fixed-point number from an existing ```Fixed``` object.
+- Assignment operator: Assigns the value of one ```Fixed``` object to another.
+- Destructor: Displays a message upon destruction.
+- ```getRawBits```: Displays a message when called and returns the value of the fixed-point number.
+- ```setRawBits```: Displays a message when called and modifies the value of the fixed-point number.
+
+Console color management and screen clearing are used to improve the readability of status messages. The main program demonstrates the creation of ```Fixed``` objects, the use of constructors, the assignment operator, as well as the ```getRawBits``` and ```setRawBits``` methods.
+
+</details>
+
+<br>
+
+## Exercise 01 - First Steps Towards a Useful Class
+
+<details>
+	<summary>Show/Hide</summary>
+
+This exercise aims to enhance the ```Fixed``` class introduced in the previous exercise by adding new features to make it more useful. The goal is to allow the class to represent fixed-point numbers, not only with the value 0.0 but also with integer and floating-point values converted to fixed-point.
+
+##### Private Members:
+- int _value: An integer to store the value of the fixed-point number.
+- static const int _bits = 8: A static constant integer to store the number of bits of the fractional part.
+
+##### Public Members:
+- Constructors:
+	- A default constructor that initializes the value to 0.
+	- A constructor taking a constant integer as a parameter to convert this integer to fixed-point.
+	- A constructor taking a constant float as a parameter to convert this float to fixed-point.
+	- A copy constructor.
+- Assignment operator.
+- Destructor.
+- ```getRawBits```: Returns the value of the fixed-point number without converting it.
+- ```setRawBits```: Initializes the value of the fixed-point number with the one passed as a parameter.
+- ```toFloat```: Converts the fixed-point value to a floating-point number.
+- ```toInt```: Converts the fixed-point value to an integer.
+- Insertion operator overload (```<<```): Inserts a floating-point representation of the fixed-point number into the output stream.
+
+### My Implementation
+
+[Link here](https://github.com/aceyzz/CPP02/tree/main/ex01)
+
+The constructors convert integer and floating-point values to fixed-point by multiplying or dividing by ```2^_bits``` (8 in this case), allowing for precise representation of fixed-point numbers.
+
+```toFloat``` converts the stored fixed-point value to a floating-point number by performing the inverse operation, and ```toInt``` rounds this value to the nearest integer.
+
+The ```<<``` operator overload facilitates the display of ```Fixed``` objects.
+
+```getRawBits``` and ```setRawBits``` allow retrieving and setting the fixed-point value, respectively, without conversion. This implementation promotes flexible management of fixed-point numbers, offering a new dimension to number manipulation within the project.
+
+The enhanced ```Fixed``` class demonstrates its utility through a test program that converts various values between integer, floating-point, and fixed-point representations, illustrating the versatility and precision of the conversions performed by the class.
+
+</details>
+
+<br>
+
+## Exercise 02 - Now We Can Talk
+
+<details>
+	<summary>Show/Hide</summary>
+
+This exercise further enriches the ```Fixed``` class introduced in the previous exercises by adding operator overloads for comparison, arithmetic, as well as increment and decrement operators. Additionally, static member functions are introduced to provide advanced comparison features between two fixed-point numbers.
+
+### My Implementation
+
+[Link here](https://github.com/aceyzz/CPP02/tree/main/ex02)
+
+#### Operator Overloads
+
+###### Comparison Operators
+
+- ```>```: Compares if one ```Fixed``` is greater than another.
+- ```<```: Compares if one ```Fixed``` is less than another.
+- ```>=```: Compares if one ```Fixed``` is greater than or equal to another.
+- ```<=```: Compares if one ```Fixed``` is less than or equal to another.
+- ```==```: Checks equality between two ```Fixed``` objects.
+- ```!=```: Checks inequality between two ```Fixed``` objects.
+
+###### Arithmetic Operators
+
+- ```+```: Adds two ```Fixed``` objects.
+- ```-```: Subtracts one ```Fixed``` from another.
+- ```*```: Multiplies two ```Fixed``` objects.
+- ```/```: Divides one ```Fixed``` by another.
+
+###### Increment and Decrement Operators
+
+- ```++``` (pre-increment): Increments the value of a ```Fixed``` by one unit before using the value.
+- ```--``` (pre-decrement): Decrements the value of a ```Fixed``` by one unit before using the value.
+- ```++``` (post-increment): Increments the value of a ```Fixed``` by one unit after using the value.
+- ```--``` (post-decrement): Decrements the value of a ```Fixed``` by one unit after using the value.
+
+##### Public Static Member Functions
+
+- ```min```: Returns the smaller of the two fixed-point numbers passed as parameters. Two versions are provided, one for non-constant references and one for constant references.
+- ```max```: Returns the larger of the two fixed-point numbers passed as parameters. Similarly, two versions are available to handle non-constant and constant references.
+
+</details>
+
+<br>
+
+## Exercise 03 - BSP (Bonus)
+
+<details>
+	<summary>Show/Hide</summary>
+
+The goal this time is to implement a ```bsp``` function that checks whether a point is located inside a triangle defined in a 2D space, using the ```Fixed``` class for precise representation of coordinates.
+
+> Useful link [GeoGebra](https://www.geogebra.org/geometry?lang=en) for graphical representation of the triangle and points.
+
+### My Implementation
+
+[Link here](https://github.com/aceyzz/CPP02/tree/main/ex03)
+
+##### Point Class
+
+First, a ```Point``` class is created to represent a point in 2D with ```Fixed``` type coordinates.
+
+###### Private Members
+
+- ```Fixed const _x```: X-coordinate of the point, constant.
+- ```Fixed const _y```: Y-coordinate of the point, constant.
+
+###### Public Members
+
+- Default constructor: Initializes x and y to 0.
+- Constructor with two floats: Takes two floats as parameters to initialize x and y.
+- Copy constructor: Allows copying a ```Point``` object.
+- Assignment operator: Assigns the values of one ```Point``` to another.
+	- **/!\ Note that the original implementation for this operator raises an issue with constant members!!**
+- Destructor: Destroys the ```Point``` object.
+- ```getX()```: Returns the X-coordinate.
+- ```getY()```: Returns the Y-coordinate.
+
+##### BSP Function
+
+The ```bsp(Point const a, Point const b, Point const c, Point const point)``` function determines whether the point is inside the triangle formed by a, b, and c.
+
+- Parameters: The vertices a, b, c of the triangle, and the point to check.
+- Return: ```True``` if the point is inside the triangle, ```False``` otherwise (including on the sides or vertices of the triangle).
+
+###### BSP Logic
+
+The function uses the principle of determining the sign of the areas formed by the point and the vertices of the triangle to conclude the position of the point:
+
+- Sign Calculation: Uses an auxiliary ```sign``` function to compare the orientations of the triangles formed by the point with each pair of vertices of the main triangle.
+
+- Evaluation: The point is inside if and only if it shares the same orientation with respect to each side of the triangle.
+
+#### Key Points and Issues
+
+- Assignment and Constants: You identified an issue with assigning to the constant members of ```Point```. A solution would be to omit the assignment operator for the ```Point``` class, as the attributes are constant and initialized at construction.
+- Precision: The use of the ```Fixed``` class ensures precise handling of arithmetic operations and comparisons, crucial for the accuracy of geometric checks.
+
+</details>
+
+</details>
